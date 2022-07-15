@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport content=" width=device-width, initial-scale=1.0> 
+        <title>Tris</title>
+        <link rel="stylesheet" href = "style.css">
+
+    </head>
+    <body>
+        <div>
+            <h1>xoxoxo Tris oxoxox</h1>
+
+            <br><br>
+
+            <h1 id="testo"></h1>
+
+            <br><br><br><br>
+
+            <div id="div1">
+                <br><br>
+
+                <input type="text" onclick="main(); myfunc1();" class="tasti" id="1" readonly></input>
+                <input type="text" onclick="main(); myfunc2();" class="tasti" id="2" readonly></input>
+                <input type="text" onclick="main(); myfunc3();" class="tasti" id="3" readonly></input>
+
+            </div>
+            <div id="div2">
+
+                <br>
+
+                <input type="text" onclick="main(); myfunc4();" class="tasti" id="4" readonly></input>
+                <input type="text" onclick="main(); myfunc5();" class="tasti" id="5" readonly></input>
+                <input type="text" onclick="main(); myfunc6();" class="tasti" id="6" readonly></input>
+
+            </div>
+            <div id="div3">
+
+                <br>
+
+                <input type="text" onclick="main(); myfunc7();" class="tasti" id="7" readonly></input>
+                <input type="text" onclick="main(); myfunc8();" class="tasti" id="8" readonly></input>
+                <input type="text" onclick="main(); myfunc9();" class="tasti" id="9" readonly></input>
+
+                <br><br>
+
+            </div>
+
+            <br><br>
+
+            <div id="reset">
+                <br><br>
+                <button type="text" onclick="reset()" id="button" readonly>RESET</button>
+            </div>
+
+            <script>
+                let giocatore1 = prompt("Inserisci il nome del primo giocatore: ");
+                let giocatore2 = prompt("Inserisci il nome del secondo giocatore: ");
+                let player = giocatore1;  
+                let simbolo;
+                let win;
+
+                let tasto1 = document.getElementById("1");
+                let tasto2 = document.getElementById("2");
+                let tasto3 = document.getElementById("3");
+                let tasto4 = document.getElementById("4");
+                let tasto5 = document.getElementById("5");
+                let tasto6 = document.getElementById("6");
+                let tasto7 = document.getElementById("7");
+                let tasto8 = document.getElementById("8");
+                let tasto9 = document.getElementById("9");
+
+                let tasti = [tasto1, tasto2, tasto3, tasto4, tasto5, tasto6, tasto7, tasto8, tasto9];
+
+                function controllo() {
+                    if(vittoria()){
+
+                        window.alert(player + " ha vinto !!!");
+                        reset()
+                    }
+
+                    else if(pareggio()) {
+
+                        window.alert("Pareggio");
+                        reset()
+                    }
+                }
+
+                function main() {
+                    if (player === giocatore1) {
+                        simbolo = "X";
+                    }
+                    else {
+                        simbolo = "O";
+                    }
+
+                    document.getElementById("testo").innerHTML = player + " è il tuo turno";
+
+                    if (player === giocatore1) {
+                        player = giocatore2;
+                    }
+                    else {
+                        player = giocatore1;
+                    }
+                }
+
+                function myfunc1() {
+                    tasto1.value = simbolo;
+                    tasto1.disabled = true;
+                    controllo()
+                }
+
+                function myfunc2() {
+                    tasto2.value = simbolo;
+                    tasto2.disabled = true;
+                    controllo()
+                }
+
+                function myfunc3() {
+                    tasto3.value = simbolo;
+                    tasto3.disabled = true;
+                    controllo()
+                }
+
+                function myfunc4() {
+                    tasto4.value = simbolo;
+                    tasto4.disabled = true;
+                    controllo()
+                }
+
+                function myfunc5() {
+                    tasto5.value = simbolo;
+                    tasto5.disabled = true;
+                    controllo()
+                }
+
+                function myfunc6() {
+                    tasto6.value = simbolo;
+                    tasto6.disabled = true;
+                    controllo()
+                }
+
+                function myfunc7() {
+                    tasto7.value = simbolo;
+                    tasto7.disabled = true;
+                    controllo()
+                }
+
+                function myfunc8() {
+                    tasto8.value = simbolo;
+                    tasto8.disabled = true;
+                    controllo()
+                }
+
+                function myfunc9() {
+                    tasto9.value = simbolo;
+                    tasto9.disabled = true;
+                    controllo()
+                }
+
+                function pareggio() {
+                    let caselle = 0;
+                    for(let i = 0; i < tasti.length; i++) {
+                        if(tasti[i].value === "X" || tasti[i].value === "O") {
+                            caselle++;
+                        }
+
+                        if(caselle === 9) {
+                            return true;
+                        }
+                    }
+
+                }
+
+                function reset() {
+                    tasto1.value = " ";
+                    tasto1.disabled = false;
+
+                    tasto2.value = " ";
+                    tasto2.disabled = false;
+
+                    tasto3.value = " ";
+                    tasto3.disabled = false;
+
+                    tasto4.value = " ";
+                    tasto4.disabled = false;
+
+                    tasto5.value = " ";
+                    tasto5.disabled = false;
+
+                    tasto6.value = " ";
+                    tasto6.disabled = false;
+
+                    tasto7.value = " ";
+                    tasto7.disabled = false;
+
+                    tasto8.value = " ";
+                    tasto8.disabled = false;
+
+                    tasto9.value = " ";
+                    tasto9.disabled = false;
+                 
+                }
+
+                function vittoria() {
+                    if(tasto1.value === tasto2.value && tasto2.value === tasto3.value && (tasto1.value === "X" || tasto1.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto4.value === tasto5.value && tasto5.value === tasto6.value && (tasto4.value === "X" || tasto4.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto7.value === tasto8.value && tasto8.value === tasto9.value && (tasto7.value === "X" || tasto7.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto1.value === tasto4.value && tasto4.value === tasto7.value && (tasto1.value === "X" || tasto1.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto2.value === tasto5.value && tasto5.value === tasto8.value && (tasto2.value === "X" || tasto2.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto3.value === tasto6.value && tasto6.value === tasto9.value && (tasto3.value === "X" || tasto3.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto1.value === tasto5.value && tasto5.value === tasto9.value && (tasto1.value === "X" || tasto1.value === "O")) {
+                        win = true;
+                    }
+                    else if(tasto3.value === tasto5.value && tasto5.value === tasto7.value && (tasto3.value === "X" || tasto3.value === "O")) {
+                        win = true;
+                    }
+                    else {
+                        win = false;
+                    }
+
+                    return win;
+                
+                }
+
+                if (player === giocatore1) {
+                    simbolo = "X";
+                }
+                else {
+                    simbolo = "O";
+                }
+
+                document.getElementById("testo").innerHTML = player + " è il tuo turno";
+
+                if (player === giocatore1) {
+                    player = giocatore2;
+                }
+                else {
+                    player = giocatore1;
+                }
+                
+            </script>
+        </div>
+    </body>
+</html>

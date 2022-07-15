@@ -1,0 +1,56 @@
+h1 {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+body {
+    background: linear-gradient(#0f0f77 , #3535ec);
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+#button {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 100px;
+    height: 45px;
+}
+
+#div1 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#div2 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#div3 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.tasti {
+    height: 90px;
+    width: 90px;
+    
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: larger;
+
+    justify-content: center;
+    align-items: center;
+}
